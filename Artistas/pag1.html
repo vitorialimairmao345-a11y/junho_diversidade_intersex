@@ -25,7 +25,26 @@
             font-family: var(--font-main);
             background-color: #f4f4f4;
             min-height: 100vh;
-            /* Removido o flex do body para não quebrar a rolagem vertical e estrutura */
+        }
+
+        /* AJUSTE RESPONSIVO: Navegação principal */
+        nav {
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* Evita quebra de layout se houver mais itens */
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--color-purple);
+            font-weight: bold;
         }
 
         /* Banner Responsivo */
@@ -51,7 +70,7 @@
         .slide-purple { background-color: var(--color-purple); }
         .slide-yellow { background-color: var(--color-yellow); color: var(--color-purple) !important; }
 
-        /* CORREÇÃO AQUI: Ajuste para o texto do carrossel não sumir no mobile */
+        /* Ajuste para o texto do carrossel não sumir no mobile */
         .carousel-caption {
             position: relative;
             left: 0;
@@ -62,7 +81,13 @@
             width: 100%;
         }
 
-        h2 { font-weight: 800; margin-bottom: 20px; }
+        /* AJUSTE RESPONSIVO: Títulos adaptáveis */
+        h2 { 
+            font-weight: 800; 
+            margin-bottom: 20px; 
+            font-size: calc(1.5rem + 1vw); /* Diminui proporcionalmente em telas menores */
+        }
+        
         p { font-size: 1.25rem; max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
         /* Bandeira Intersexo Simplificada (Círculo Roxo) */
@@ -95,9 +120,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* CORREÇÃO AQUI: Altura automática para o carrossel caber no celular */
+        /* Altura automática para o carrossel caber no celular */
         @media (max-width: 768px) {
-            .carousel-item { height: auto; min-height: 450px; padding: 20px; }
+            .carousel-item { height: auto; min-height: 450px; padding: 40px 20px; }
             p { font-size: 1.1rem; }
         }
 
@@ -129,6 +154,7 @@
         .container-artista h1 {
             margin-top: 0;
             margin-bottom: 10px;
+            font-size: calc(1.6rem + 0.6vw);
         }
 
         .profissao {
@@ -138,11 +164,10 @@
             width: max-content;   
             max-width: 100%;     
             padding: 5px 15px;
-            margin: 0;                  
+            margin: 0;                 
         }
 
         /* Imagens extras e utilitários de responsividade */
-        /* CORREÇÃO AQUI: Garante que a imagem final não quebre o layout no mobile */
         .fakeimg img {
             max-width: 100%;
             height: auto;
@@ -155,6 +180,7 @@
             margin-top: 40px;
         }
         
+        /* AJUSTE RESPONSIVO: Container de Artistas & Seção Saiba Mais */
         @media (max-width: 768px) {
             .container-artista {
                 flex-direction: column; 
@@ -172,11 +198,32 @@
                 margin-right: 0;      
                 margin-bottom: 15px;    
             }
+
+            .saibacontainer h2, .saibacontainer h5, .saibacontainer p {
+                text-align: center; /* Centraliza blocos longos de texto no mobile para melhor leitura */
+            }
         }
 
-        .saibacontainer{
+        .saibacontainer {
             background-color: rgb(171, 94, 187);
-            padding: 20px; /* Adicionado um padding interno para o texto não colar na borda no mobile */
+            padding: 40px 20px; /* Aumentado o espaçamento superior e lateral */
+            color: #fff; /* Garante legibilidade do texto padrão sobre o fundo roxo */
+        }
+
+        /* AJUSTE DE RESPONSIVIDADE: Links/Botões da lista que podiam quebrar */
+        .seu-botao-estilizado {
+            color: #fff;
+            word-break: break-word; /* Evita que URLs ou textos longos quebrem a tela lateralmente */
+        }
+        .saibacontainer ul {
+            padding-left: 20px;
+        }
+
+        /* Rodapé Garantido */
+        .rodape-img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -298,17 +345,17 @@
             <a href="https://www.youtube.com/watch?v=TUGv8axyhzY" target="_blank" class="seu-botao-estilizado">
                 ONU Brasil - Ativistas explicam o que significa ser intersexo
             </a>
-        </li>
+        </td>
         <li class="mb-3">
             <a href="https://youtu.be/qJK5hy7R7kg?si=qsb7WWxIArcgRmwl" target="_blank" class="seu-botao-estilizado">
                 Buzz Feed Brasil - Como é ser uma pessoa intersexual? 
             </a>
-        </li>
+        </td>
         <li class="mb-3"> 
             <a href="https://youtu.be/e3vZ3_-Sp2M?si=pESdIx30IqT0Qwcl" target="_blank" class="seu-botao-estilizado">
                 O que é a letra I na sigla LGBTQIAP+
             </a>
-        </li>
+        </td>
     </ul> 
 
       <h2 class="outubro">26 de outubro de 1996: O dia em que o movimento intersexo ocupou as ruas e fez história</h2>
