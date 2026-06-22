@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artistas e Personalidades - Mês da Diversidade</title>
     
-    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +24,8 @@
 
         body {
             font-family: var(--font-main);
-            background-color: #f4f4f4;
+            background-color: #EFEBE4;
             min-height: 100vh;
-            /* Removido o flex do body para não quebrar a rolagem vertical e estrutura */
         }
 
         /* Banner Responsivo */
@@ -38,26 +38,30 @@
         /* Estilização do Carrossel */
         .carousel-item {
             height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 40px;
             color: white;
             transition: transform 0.6s ease-in-out;
             position: relative;
             overflow: hidden;
+            background-color: var(--color-purple); 
+        }
+
+        /* Aplica o Flexbox APENAS no slide que está ativo no momento */
+        .carousel-item.active {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
         }
 
         .slide-purple { background-color: var(--color-purple); }
         .slide-yellow { background-color: var(--color-yellow); color: var(--color-purple) !important; }
 
+        /* Ajuste do Caption para funcionar perfeitamente com o Flexbox pai */
         .carousel-caption {
-            position: relative;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            position: static; 
             padding: 20px;
             text-align: center;
+            width: 100%;
         }
 
         h2 { font-weight: 800; margin-bottom: 20px; }
@@ -169,10 +173,6 @@
                 margin-bottom: 15px;    
             }
         }
-
-        .saibacontainer{
-            background-color: rgb(171, 94, 187);
-        }
     </style>
 </head>
 <body>
@@ -180,143 +180,139 @@
 <nav>
     <ul>
         <li><a href="../index.html">Home</a></li>
-        <li><a href="pag1.html" >Artistas</a></li>
+        <li><a href="pag1.html">Artistas</a></li>
     </ul>
 </nav>
 
-<header class="banner">
-    <img src="artistaba.png" class="banner-img" alt="Banner Mês da Diversidade">
-</header>
+<div class="conteudo-centralizado">
+    <header class="banner">
+        <img src="artistaba.png" class="banner-img" alt="Banner Mês da Diversidade">
+    </header>
 
-<section>
-    <div class="container mt-5">
-        <div id="intersexInfoCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <section>
+        <div class="container mt-5">
+            <div id="intersexInfoCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner rounded shadow-lg">
+                    <div class="carousel-item active slide-purple">
+                        <div class="carousel-caption">
+                            <svg width="100" height="100" viewBox="0 0 100 100" class="mb-4">
+                                <circle cx="50" cy="50" r="40" stroke="white" stroke-width="4" fill="none" opacity="0.3"/>
+                            </svg>
+                            <h2>O que é ser uma pessoa intersexo?</h2>
+                            <p>Pessoas intersexo nascem com <strong>características biológicas</strong> (como anatomia reprodutiva, órgãos genitais, hormônios ou cromossomos) que não se encaixam nas definições típicas de corpos masculinos ou femininos.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item slide-yellow">
+                        <div class="carousel-caption">
+                            <div class="flag-icon"></div>
+                            <h2 style="color: var(--color-purple);">Uma realidade natural e diversa.</h2>
+                            <p>Cerca de <strong>1,7% da população mundial</strong> nasce com traços intersexo — uma estatística comparável ao número de pessoas que nascem com cabelos ruivos. A bandeira, com o círculo roxo em fundo amarelo, simboliza a totalidade e o direito de ser quem é.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item slide-purple">
+                        <div class="carousel-caption">
+                            <div class="mb-4" style="font-size: 3rem;">🎨</div>
+                            <h2>Vozes que transformam a cultura.</h2>
+                            <p>Historicamente invisibilizadas, personalidades intersexo usam a arte, o design e o ativismo para reivindicar suas narrativas, celebrar seus corpos e educar o mundo.</p>
+                            <p class="mt-4 fw-bold">Role para baixo e conheça personalidades que mudaram o cenário artístico! ⬇️</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
             </div>
-
-            <div class="carousel-inner rounded shadow-lg">
-                <div class="carousel-item active slide-purple">
-                    <div class="carousel-caption">
-                        <svg width="100" height="100" viewBox="0 0 100 100" class="mb-4">
-                            <circle cx="50" cy="50" r="40" stroke="white" stroke-width="4" fill="none" opacity="0.3"/>
-                        </svg>
-                        <h2>O que é ser uma pessoa intersexo?</h2>
-                        <p>Pessoas intersexo nascem com <strong>características biológicas</strong> (como anatomia reprodutiva, órgãos genitais, hormônios ou cromossomos) que não se encaixam nas definições típicas de corpos masculinos ou femininos.</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item slide-yellow">
-                    <div class="carousel-caption">
-                        <div class="flag-icon"></div>
-                        <h2 style="color: var(--color-purple);">Uma realidade natural e diversa.</h2>
-                        <p>Cerca de <strong>1,7% da população mundial</strong> nasce com traços intersexo — uma estatística comparável ao número de pessoas que nascem com cabelos ruivos. A bandeira, com o círculo roxo em fundo amarelo, simboliza a totalidade e o direito de ser quem é.</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item slide-purple">
-                    <div class="carousel-caption">
-                        <div class="mb-4" style="font-size: 3rem;">🎨</div>
-                        <h2>Vozes que transformam a cultura.</h2>
-                        <p>Historicamente invisibilizadas, personalidades intersexo usam a arte, o design e o ativismo para reivindicar suas narrativas, celebrar seus corpos e educar o mundo.</p>
-                        <p class="mt-4 fw-bold">Role para baixo e conheça personalidades que mudaram o cenário artístico! ⬇️</p>
-                    </div>
-                </div>
+        </div>
+    </section>
+    <main class="container mt-5 mx-auto">
+        
+        <div class="container-artista">
+            <img src="hane.jpg" alt="Hanne Gaby Odiele">
+            <div class="content">
+                <h1 class="artista">Hanne Gaby Odiele</h1>
+                <h2 class="profissao">Modelo</h2>
+                <br>
+                <p>Modelo da alta costura e defensora dos direitos das pessoas intersexo. Hanne Gaby Odiele emergiu como uma das defensoras mais proeminentes e francas dos direitos e da conscientização sobre as pessoas intersexo. Uma condição frequentemente incompreendida, a intersexualidade se refere a pessoas que nascem com características sexuais biológicas que não se enquadram nas classificações binárias de gênero. Odiele, uma modelo requisitada que trabalhou com grifes de moda de elite, de Chanel a Givenchy, usou sua posição de destaque para se tornar uma defensora da comunidade intersexo à qual ela mesma pertence.</p>
             </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#intersexInfoCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Próximo</span>
-            </button>
         </div>
-    </div>
-</section>
 
-<main class="container mt-5">
-    
-    <div class="container-artista">
-        <img src="hane.jpg" alt="Hanne Gaby Odiele">
-        <div class="content">
-            <h1 class="artista">Hanne Gaby Odiele</h1>
-            <h2 class="profissao">Modelo</h2>
-            <br>
-            <p>Modelo da alta costura e defensora dos direitos das pessoas intersexo Hanne Gaby Odiele emergiu como uma das defensoras mais proeminentes e francas dos direitos e da conscientização sobre as pessoas intersexo. Uma condição frequentemente incompreendida, a intersexualidade se refere a pessoas que nascem com características sexuais biológicas que não se enquadram nas classificações binárias de gênero. Odiele, uma modelo requisitada que trabalhou com grifes de moda de elite, de Chanel a Givenchy, usou sua posição de destaque para se tornar uma defensora da comunidade intersexo à qual ela mesma pertence.</p>
+        <div class="container-artista">
+            <img src="karen.png" alt="Karen Bachini">
+            <div class="content">
+                <h1 class="artista">Karen Bachini</h1>
+                <h2 class="profissao">Empresária e Youtuber</h2>
+                <br>
+                <p>Karen Bachini é uma das principais influenciadoras de beleza e empresárias de cosméticos do Brasil, reconhecida por suas resenhas sinceras e tutoriais de maquiagem na internet. Em março de 2023, ela compartilhou publicamente que é uma pessoa intersexo. No relato, Karen explicou que passou a adolescência sem desenvolver caracteres sexuais e sem menstruar, recebendo inicialmente o diagnóstico incorreto de menopausa precoce. Após anos de exames e investigações médicas, ela descobriu que seu corpo não produz hormônios naturalmente, o que a enquadra na intersexualidade. A revelação foi um marco importante em sua vida, trazendo respostas sobre seu próprio corpo e ajudando a dar visibilidade ao tema.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="container-artista">
-        <img src="karen.png" alt="Karen Bachini">
-        <div class="content">
-            <h1 class="artista">Karen Bachini</h1>
-            <h2 class="profissao">D.I, Empresária e Youtuber</h2>
-            <br>
-            <p>Karen Bachini é uma das principais influenciadoras de beleza e empresárias de cosméticos do Brasil, reconhecida por suas resenhas sinceras e tutoriais de maquiagem na internet. Em março de 2023, ela compartilhou publicamente que é uma pessoa intersexo. No relato, Karen explicou que passou a adolescência sem desenvolver caracteres sexuais e sem menstruar, recebendo inicialmente o diagnóstico incorreto de menopausa precoce. Após anos de exames e investigações médicas, ela descobriu que seu corpo não produz hormônios naturalmente, o que a enquadra na intersexualidade. A revelação foi um marco importante em sua vida, trazendo respostas sobre seu próprio corpo e ajudando a dar visibilidade ao tema.</p>
+        <div class="container-artista">
+            <img src="roberta.jpg" alt="Roberta Close">
+            <div class="content">
+                <h1 class="artista">Roberta Close</h1>
+                <h2 class="profissao">Modelo, Atriz</h2>
+                <br>
+                <p>Roberta Close é uma das maiores personalidades da moda e da cultura pop brasileira, tendo feito história nos anos 1980 como modelo e atriz. Reconhecida internacionalmente por sua beleza marcante, ela foi uma pioneira absoluta na visibilidade trans no Brasil, estampando capas de revistas famosas e desfilando para grandes marcas. Roberta Close também é uma pessoa intersexo, condição que ela mesma detalhou publicamente em sua biografia e entrevistas posteriores. Ela nasceu com hermafroditismo verdadeiro e, na juventude, passou por exames que constataram que seu corpo possuía características biológicas de ambos os sexos, o que a levou a realizar a cirurgia de redesignação sexual e a lutar durante anos na justiça brasileira pela retificação oficial de seus documentos de identidade.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="container-artista">
-        <img src="roberta.jpg" alt="Roberta Close">
-        <div class="content">
-            <h1 class="artista">Roberta Close</h1>
-            <h2 class="profissao">Modelo, Atriz</h2>
-            <br>
-            <p>Roberta Close é uma das maiores personalidades da moda e da cultura pop brasileira, tendo feito história nos anos 1980 como modelo e atriz. Reconhecida internacionalmente por sua beleza marcante, ela foi uma pioneira absoluta na visibilidade trans no Brasil, estampando capas de revistas famosas e desfilando para grandes marcas. Roberta Close também é uma pessoa intersexo, condição que ela mesma detalhou publicamente em sua biografia e entrevistas posteriores. Ela nasceu com hermafroditismo verdadeiro e, na juventude, passou por exames que constataram que seu corpo possuía características biológicas de ambos os sexos, o que a levou a realizar a cirurgia de redesignação sexual e a lutar durante anos na justiça brasileira pela retificação oficial de seus documentos de identidade.</p>
+        <div class="container-artista">
+            <img src="edinanci.png" alt="Edinanci Silva">
+            <div class="content">
+                <h1 class="artista">Edinanci Silva</h1>
+                <h2 class="profissao">Judoca</h2>
+                <br>
+                <p>Edinanci Silva é um dos grandes nomes da história do judô brasileiro, tendo representado o país em quatro edições dos Jogos Olímpicos e conquistado duas medalhas de bronze em Campeonatos Mundiais. No início de sua carreira, na década de 1990, a atleta descobriu ser uma pessoa intersexo ao passar pelo controle de feminilidade exigido pelas federações esportivas da época, que identificou que seu corpo produzia altos níveis de testosterona e possuía características genéticas masculinas e femininas. Para continuar competindo na categoria feminina, Edinanci passou por procedimentos cirúrgicos de adequação e tratamento hormonal. Apesar da imensa pressão pública e do preconceito que enfrentou na mídia, ela superou as barreiras institucionais e se tornou um símbolo de pioneirismo, resiliência e excelência no esporte nacional.</p>
+            </div>
         </div>
+
+    </main>
+</div> <article class="saiba-container">
+    <div class="saibacontainer">
+        <span class="saiba-mais">Saiba mais</span>
+        <br><br>
+        <h2>Aprenda mais sobre a comunidade</h2>
+        <br>
+        <ul>
+            <li class="mb-3">
+                <a href="https://www.youtube.com/watch?v=TUGv8axyhzY" target="_blank" class="seu-botao-estilizado">
+                    ONU Brasil - Ativistas explicam o que significa ser intersexo
+                </a>
+            </li>
+            <li class="mb-3">
+                <a href="https://youtu.be/qJK5hy7R7kg?si=qsb7WWxIArcgRmwl" target="_blank" class="seu-botao-estilizado">
+                    Buzz Feed Brasil - Como é ser uma pessoa intersexual? 
+                </a>
+            </li>
+            <li class="mb-3"> 
+                <a href="https://youtu.be/e3vZ3_-Sp2M?si=pESdIx30IqT0Qwcl" target="_blank" class="seu-botao-estilizado">
+                    O que é a letra I na sigla LGBTQIAP+
+                </a>
+            </li>
+        </ul> 
+
+        <h2 class="outubro">26 de outubro de 1996: O dia em que o movimento intersexo ocupou as ruas e fez história</h2>
+        <h5>A primeira manifestação pública de pessoas intersexo desafiou a medicina e deu origem ao Dia Mundial da Consciência sobre o tema.</h5>
+        <div class="fakeimg"><img src="hwa-boston-cine.jpg" alt="Manifestação Histórica"></div>
+        <br> 
+        <p>No dia 26 de outubro de 1996, um pequeno grupo de ativistas em Boston, nos Estados Unidos, mudou os rumos dos direitos humanos. Munidos de cartazes em frente à conferência anual da Academia Americana de Pediatria, eles realizaram a primeira manifestação pública de pessoas intersexo de que se tem registro no mundo.
+        O protesto foi uma reação direta contra as cirurgias e tratamentos médicos invasivos realizados em bebês e crianças intersexo sem o consentimento delas — uma prática padrão na época para "normalizar" corpos que nasciam com características biológicas fora do binarismo tradicional de macho e fêmea.</p>
     </div>
-
-    <div class="container-artista">
-        <img src="edinanci.png" alt="Edinanci Silva">
-        <div class="content">
-            <h1 class="artista">Edinanci Silva</h1>
-            <h2 class="profissao">Judoca</h2>
-            <br>
-            <p>Edinanci Silva é um dos grandes nomes da história do judô brasileiro, tendo representado o país em quatro edições dos Jogos Olímpicos e conquistado duas medalhas de bronze em Campeonatos Mundiais. No início de sua carreira, na década de 1990, a atleta descobriu ser uma pessoa intersexo ao passar pelo controle de feminilidade exigido pelas federações esportivas da época, que identificou que seu corpo produzia altos níveis de testosterona e possuía características genéticas masculinas e femininas. Para continuar competindo na categoria feminina, Edinanci passou por procedimentos cirúrgicos de adequação e tratamento hormonal. Apesar da imensa pressão pública e do preconceito que enfrentou na mídia, ela superou as barreiras institucionais e se tornou um símbolo de pioneirismo, resiliência e excelência no esporte nacional.</p>
-        </div>
-    </div>
-
-</main>
-
-<article class="saibacontainer">
-    <span class="saiba-mais">Saiba mais</span>
-    <br>
-    <br>
-    <h2>Aprenda mais sobre a comunidade</h2>
-    <br>
-    <ul>
-        <li class="mb-3">
-            <a href="https://www.youtube.com/watch?v=TUGv8axyhzY" target="_blank" class="seu-botao-estilizado">
-                ONU Brasil - Ativistas explicam o que significa ser intersexo
-            </a>
-        </li>
-        <li class="mb-3">
-            <a href="https://youtu.be/qJK5hy7R7kg?si=qsb7WWxIArcgRmwl" target="_blank" class="seu-botao-estilizado">
-                Buzz Feed Brasil - Como é ser uma pessoa intersexual? 
-            </a>
-        </li>
-        <li class="mb-3"> 
-            <a href="https://youtu.be/e3vZ3_-Sp2M?si=pESdIx30IqT0Qwcl" target="_blank" class="seu-botao-estilizado">
-                O que é a letra I na sigla LGBTQIAP+
-            </a>
-        </li>
-    </ul> 
-
-      <h2 class="outubro">26 de outubro de 1996: O dia em que o movimento intersexo ocupou as ruas e fez história</h2>
-      <h5>A primeira manifestação pública de pessoas intersexo desafiou a medicina e deu origem ao Dia Mundial da Consciência sobre o tema.</h5>
-      <div class="fakeimg"><img src="hwa-boston-cine.jpg"></div>
-      <br> 
-      <p>No dia 26 de outubro de 1996, um pequeno grupo de ativistas em Boston, nos Estados Unidos, mudou os rumos dos direitos humanos. Munidos de cartazes em frente à conferência anual da Academia Americana de Pediatria, eles realizaram a primeira manifestação pública de pessoas intersexo de que se tem registro no mundo.
-
-O protesto foi uma reação direta contra as cirurgias e tratamentos médicos invasivos realizados em bebês e crianças intersexo sem o consentimento delas — uma prática padrão na época para "normalizar" corpos que nasciam com características biológicas fora do binarismo tradicional de macho e fêmea.</p>
-
 </article>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <footer class="rodape">
     <a href="https://thisisintersex.org/" target="_blank">
@@ -324,5 +320,6 @@ O protesto foi uma reação direta contra as cirurgias e tratamentos médicos in
     </a>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
